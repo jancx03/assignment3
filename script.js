@@ -66,7 +66,21 @@ function removeR() {
 }
 //Remove a column
 function removeC() {
-    alert("Clicked Remove Col")
+    
+    if (numCols === 0) {
+        return
+    }
+
+    let rows = document.querySelector('#grid').querySelector('tbody').querySelectorAll('tr');
+    
+    for (let row of rows) {
+        row.removeChild(row.children[row.children.length-1])
+    }
+
+    if (--numCols === 0) {
+        numRows = 0
+        tableItems.removeChild(tableItems.children[0])
+    }
 }
 //sets global var for selected color
 function selected(){
