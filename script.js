@@ -89,7 +89,18 @@ function selected(){
 }
 
 function fill(){
-    alert("Clicked Fill All")
+    // Change grid background to selected color
+    if (numCols === 0) {
+        return 
+    }
+
+    let rows = document.querySelector('#grid').querySelector('tbody').querySelectorAll('tr');
+    
+    for (let row of rows) {
+        for (let field of row.children) {
+            field.style.backgroundColor = colorSelected
+        }
+    }
 }
 
 function clearAll(){
