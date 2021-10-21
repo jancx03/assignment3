@@ -35,8 +35,19 @@ function addR() {
 }
 //Add a column
 function addC() {
-    alert("Clicked Add Col")
+    if (numCols === 0) {
+        return init()
+    }
+
+    let rows = document.querySelector('#grid').querySelector('tbody').querySelectorAll('tr');
+    
+    for (let row of rows) {
+        row.insertCell().addEventListener('click', function() {this.style.backgroundColor = colorSelected})
+    }
+
+    numCols++
 }
+
 
 //Remove a row
 function removeR() {
