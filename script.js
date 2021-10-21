@@ -51,7 +51,18 @@ function addC() {
 
 //Remove a row
 function removeR() {
-    alert("Clicked Remove Row")
+    if (numCols === 0) {
+        return
+    }
+
+    let tableBody = tableItems.querySelector('tbody');
+
+    tableBody.removeChild(tableBody.children[0])
+
+    if (--numRows === 0) {
+        numCols = 0
+        tableItems.removeChild(tableItems.children[0])
+    }
 }
 //Remove a column
 function removeC() {
