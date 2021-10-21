@@ -119,5 +119,18 @@ function clearAll(){
 }
 
 function fillU(){
-    alert("Clicked Fill All Uncolored")
+    // Change white fields to selected color
+    if (numCols === 0) {
+        return 
+    }
+
+    let rows = document.querySelector('#grid').querySelector('tbody').querySelectorAll('tr');
+    
+    for (let row of rows) {
+        for (let field of row.children) {
+            if (field.style.backgroundColor === '') {
+                field.style.backgroundColor = colorSelected
+            }
+        }
+    }
 }
